@@ -1,8 +1,9 @@
-.UseList {
+.UserList {
     font-family: sans-serif;
     text-align: center;
     background-color: rgb(241, 234, 234);
     padding-bottom: 100%;
+
   }
   
   .flex {
@@ -71,8 +72,19 @@
   .filmnet-logo {
     height: 200px;
     margin-top: -50px;
+    margin-bottom: -30px;
     align-content: center;
   } 
+
+  .Search-bar {
+    margin: 2% 40%;
+    background-color: rgb(207, 207, 207);
+    width: 200px;
+    height: 20px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+  }
 
   .Nav {
     background-color: #616161;

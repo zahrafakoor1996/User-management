@@ -13,6 +13,8 @@ const UserList = ()=>{
   const [firstname,setName]=useState('');
   const [lastname,setLastname]=useState('');
   const [mail,setMail]=useState('');
+  const [search,setSearch]=useState('');
+
 
   const handleName=(e)=>{
     e.preventDefault();
@@ -52,13 +54,18 @@ const UserList = ()=>{
  
   );
 
+  const filteredUsers=users.filter(user=>{
+    return user.first_name.toLowerCase().includes(search.toLowerCase())
+  })
+
 
     return(
-<div className="UseList">
+<div className="UserList">
       <img className="filmnet-logo" src={filmnetLogo}/>
+      <input className="Search-bar" type="text" placeholder="search" onChange={(e)=>setSearch(e.target.value)}></input>
       <div className="flex">
         {users.length &&
-          users.map((user) => {
+          filteredUsers.map((user) => {
             return (
               <div className="box" key={user.id}>
                 <img  className="user-photo" key={user.avatar} src={user.avatar} />
