@@ -1,4 +1,4 @@
-.App {
+.UseList {
     font-family: sans-serif;
     text-align: center;
     background-color: rgb(241, 234, 234);
@@ -73,3 +73,12 @@
     margin-top: -50px;
     align-content: center;
   } 
+
+  .Nav {
+    background-color: #616161;
+    padding: 1%;
+  }
+
+  .User-num {
+    color: white;
+    }
