@@ -1,0 +1,75 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: rgb(241, 234, 234);
+    padding-bottom: 100%;
+  }
+  
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex > div {
+    margin: 0 1rem 2rem 1rem;
+    text-align: center;
+  }
+  
+  
+  .user-form {
+    position: absolute;
+    background-color: rgb(105, 105, 105);
+    margin: 10% 40%;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10px;
+    outline: none;
+  }
+  .new-input {
+    background-color: white;
+    opacity: 0.8;
+    height: 20px;
+    padding: 5px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  .name {
+    color: rgb(46, 46, 46);
+  }
+  .email {
+    color:rgb(90, 90, 90);
+  }
+
+  .user-photo {
+    border-radius: 50%;
+  }
+
+  .add-Btn{
+    background-color: #AA0A00;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.2s all; 
+    margin-top: 20px;
+  }
+
+  .add-Btn:hover {
+    background-color:#96261e ;
+  }
+
+
+  .filmnet-logo {
+    height: 200px;
+    margin-top: -50px;
+    align-content: center;
+  } 
