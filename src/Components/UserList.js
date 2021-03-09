@@ -10,28 +10,24 @@ const UserList = ()=>{
 
   const [users,setUsers]=useContext(UserContext);
   const [open, setOpen] = React.useState(false);
-  const [firstname,setName]=useState('');
-  const [lastname,setLastname]=useState('');
-  const [mail,setMail]=useState('');
+  const [newUser,setNewuser]=useState({
+    firstname:'',
+    lastname:'',
+    mail:'',
+
+  })
+  // const [firstname,setName]=useState('');
+  // const [lastname,setLastname]=useState('');
+  // const [mail,setMail]=useState('');
   const [search,setSearch]=useState('');
   const [errorMessage,setErrorMessage]=useState('');
 
 
-
-  const handleName=(e)=>{
-    e.preventDefault();
-    setName(e.target.value);
-  };
-
-  const handleLastname=(e)=>{
-    e.preventDefault();
-    setLastname(e.target.value);
-  };
-
-  const handleMail=(e)=>{
-    e.preventDefault();
-    setMail(e.target.value);
-  };
+  const onChanange = e =>{
+    var u = { ...newUser};
+    u[e.target.name] = e.target.value;
+    setNewuser(u);
+  }
 
 
   const handleOpen = () => {
@@ -40,20 +36,27 @@ const UserList = ()=>{
   };
 
   const handleSave = () => {
-    if(firstname.length<1 | lastname.length<1|mail.length<1){
+    const fnLength=newUser.firstname;
+    const lnLength=newUser.lastname;
+    const mLength=newUser.mail;
+    if(fnLength.length<1|lnLength.length<1|mLength.length<1){
       setErrorMessage('Please fill in all feilds!');
     }else{
     setErrorMessage('');
     setOpen(false);
-    setUsers(prevUsers=>[...prevUsers,{avatar:userPic , first_name:firstname , last_name: lastname , email:mail}]);
-    setName('');
-    setLastname('');
-    setMail('');
-    }
+    setUsers(prevUsers=>[...prevUsers,{avatar:userPic , first_name:newUser.firstname , last_name: newUser.lastname , email: newUser.mail}]);
+    newUser.firstname='';
+    newUser.lastname='';
+    newUser.mail='';
+  }
   };
   const handleCancel = () => {
     setErrorMessage('');
     setOpen(false);
+    newUser.firstname='';
+    newUser.lastname='';
+    newUser.mail='';
+    
   }
 
 
@@ -61,9 +64,9 @@ const UserList = ()=>{
 
       <div className="user-form" >
         <img src={userPic} className="user-photo"/>
-        <input className="new-input" name="firstname" placeholder='name'  onChange={handleName}/>
-        <input className="new-input" name="lastname" placeholder='last name'  onChange={handleLastname}/>
-        <input className="new-input" name="usermail" placeholder='email' onChange={handleMail}/>
+        <input className="new-input" type="text" name="firstname" placeholder='name'  onChange={onChanange}/>
+        <input className="new-input" type="text" name="lastname" placeholder='last name'  onChange={onChanange}/>
+        <input className="new-input" type="email" name="mail" placeholder='email' onChange={onChanange}/>
         <h className="Error">{errorMessage}</h>
         <div>
         <button className="Save-Btn" onClick={handleSave}>Save</button>
