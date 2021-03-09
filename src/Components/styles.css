@@ -68,6 +68,43 @@
     background-color:#96261e ;
   }
 
+  .Save-Btn{
+    background-color: #AA0A00;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 25px;
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.2s all; 
+    margin-top: 20px;
+    margin-right: 4px;
+  }
+
+  .Save-Btn:hover {
+    background-color:#832019 ;
+  }
+
+  .Cancel-Btn{
+    background-color: #9b3838;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 25px;
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.2s all; 
+    margin-top: 20px;
+  }
+
+  .Cancel-Btn:hover {
+    background-color:#70302c ;
+  }
+
 
   .filmnet-logo {
     height: 200px;
@@ -93,4 +130,8 @@
 
   .User-num {
     color: white;
+    }
+
+    .Error {
+      color: rgb(168, 1, 1);
     }

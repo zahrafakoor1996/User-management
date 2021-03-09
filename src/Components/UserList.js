@@ -14,6 +14,8 @@ const UserList = ()=>{
   const [lastname,setLastname]=useState('');
   const [mail,setMail]=useState('');
   const [search,setSearch]=useState('');
+  const [errorMessage,setErrorMessage]=useState('');
+
 
 
   const handleName=(e)=>{
@@ -33,13 +35,26 @@ const UserList = ()=>{
 
 
   const handleOpen = () => {
+    setErrorMessage('');
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleSave = () => {
+    if(firstname.length<1 | lastname.length<1|mail.length<1){
+      setErrorMessage('Please fill in all feilds!');
+    }else{
+    setErrorMessage('');
     setOpen(false);
-    setUsers(prevUsers=>[...prevUsers,{avatar:userPic , first_name:firstname , last_name: lastname , email:mail}])
+    setUsers(prevUsers=>[...prevUsers,{avatar:userPic , first_name:firstname , last_name: lastname , email:mail}]);
+    setName('');
+    setLastname('');
+    setMail('');
+    }
   };
+  const handleCancel = () => {
+    setErrorMessage('');
+    setOpen(false);
+  }
 
 
   const body = (
@@ -49,7 +64,11 @@ const UserList = ()=>{
         <input className="new-input" name="firstname" placeholder='name'  onChange={handleName}/>
         <input className="new-input" name="lastname" placeholder='last name'  onChange={handleLastname}/>
         <input className="new-input" name="usermail" placeholder='email' onChange={handleMail}/>
-        <button className="add-Btn" onClick={handleClose}>Save</button>
+        <h className="Error">{errorMessage}</h>
+        <div>
+        <button className="Save-Btn" onClick={handleSave}>Save</button>
+        <button className="Cancel-Btn" onClick={handleCancel}>Cancel</button>
+        </div>
       </div>
  
   );
@@ -85,7 +104,7 @@ const UserList = ()=>{
       </button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleCancel}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
